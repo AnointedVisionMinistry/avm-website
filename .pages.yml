@@ -1,0 +1,111 @@
+# Anointed Vision Ministry | Pages CMS configuration
+# Editor: https://app.pagescms.org (GitHub sign-in required)
+media:
+  input: media
+  output: /media
+  categories: [image]
+  rename: safe
+content:
+  - name: homepage
+    label: Homepage Featured Photo
+    type: file
+    path: content/homepage.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: featured_image
+        label: Featured photo
+        type: image
+        required: true
+      - name: featured_image_alt
+        label: Photo description (accessibility)
+        type: string
+        required: true
+      - name: featured_message
+        label: Featured heading
+        type: string
+        required: true
+  - name: gallery
+    label: Church Photo Gallery
+    type: file
+    path: content/gallery.json
+    format: json
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: title
+        label: Photo title
+        type: string
+        required: true
+      - name: image
+        label: Upload photo
+        type: image
+        required: true
+      - name: caption
+        label: Caption
+        type: text
+      - name: published
+        label: Show on website
+        type: boolean
+  - name: sermons
+    label: Worship Services & Sermons
+    type: file
+    path: content/sermons.json
+    format: json
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: title
+        label: Sermon or service title
+        type: string
+        required: true
+      - name: date
+        label: Service date (YYYY-MM-DD)
+        type: string
+        required: true
+      - name: speaker
+        label: Speaker
+        type: string
+      - name: video_url
+        label: YouTube video link
+        type: string
+        required: true
+        description: Paste a youtube.com/watch?v= or youtu.be link. Video must be public or unlisted.
+      - name: description
+        label: Description
+        type: text
+      - name: published
+        label: Show on website
+        type: boolean
+  - name: events
+    label: Church Events & Flyers
+    type: file
+    path: content/events.json
+    format: json
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: title
+        label: Event name
+        type: string
+        required: true
+      - name: date
+        label: Event date (YYYY-MM-DD)
+        type: string
+        required: true
+      - name: time
+        label: Event time (optional)
+        type: string
+      - name: description
+        label: Event details
+        type: text
+      - name: flyer
+        label: Event flyer (optional)
+        type: image
+      - name: published
+        label: Show on website
+        type: boolean
